@@ -2,6 +2,7 @@
 
 #include "List.h"
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 /*****************************************************************************/
@@ -104,4 +105,84 @@ void CleanMemory (Node * first)
 
 		delete first;
 	}
+}
+
+/*****************************************************************************/
+// NUMBER OF NODES
+// Calculates the number of nodes in a list.
+// Receives as argument a pointer to the first node.
+
+int NumberOfNodes (Node * first)
+{
+	int count = 0;		// Counts the number of nodes
+
+	if (!IsItVoid(first))		// Checks if the list is void
+	{
+		Node * aux = first;		// Auxiliar pointer that points to each node		
+
+		while (aux != 0)
+		{
+			aux = aux->next;
+			count++;
+		}
+	}
+
+	return (count);
+}
+
+/*****************************************************************************/
+// ARITHMETIC MEAN OF THE STORED DATA
+// Calculates the mean of all the values stored in the list.
+// Receives as argument a pointer to the first node.
+
+DataType Mean (Node * first)
+{
+	DataType mean = 0;
+
+	if (!IsItVoid(first))		// Checks if the list is void
+	{
+		Node * aux = first;
+		DataType add = 0;		// Keeps the addition of the values
+
+		// Add the numbers to the variable until the list ends
+		while (aux != 0)
+		{
+			add += aux->info;
+			aux = aux->next;
+		}
+
+		// Calculates the mean (addition / number of data)
+		mean = add / NumberOfNodes(first);
+	}
+
+	return (mean);
+}
+
+/*****************************************************************************/
+// VARIANCE OF THE STORED DATA
+// Calculates the variance of all the values stored in the list.
+// Receives as argument a pointer to the first node.
+
+DataType Variance (Node * first)
+{
+	DataType variance = 0;
+
+	if (!IsItVoid(first))		// Checks if the list is void
+	{
+		Node * aux = first;
+		DataType add = 0;		// Keeps the addition of the values
+
+		// Add the numbers to the variable until the list ends
+		while (aux != 0)
+		{
+			add += pow((aux->info),2);
+			aux = aux->next;
+		}
+
+		// Calculates the variance
+		variance = (add/NumberOfNodes(first)) - pow(Mean(first),2);
+	}
+
+	return (variance);
+
 }
