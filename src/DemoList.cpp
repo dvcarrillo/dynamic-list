@@ -19,6 +19,15 @@ int main(int argc, char const *argv[])
 	ShowList (list);
 	cout << endl << endl;
 
+	// Shows some operations on the list
+
+	cout << "* Number of nodes = " << NumberOfNodes(list);
+	cout << endl;
+	cout << "* Arithmetic mean = " << Mean(list);
+	cout << endl;
+	cout << "* Variance = " << Variance(list);
+	cout << endl << endl;
+
 	// Cleans the memory
 	cout << "Cleaning the memory..." << endl;
 	CleanMemory (list);
