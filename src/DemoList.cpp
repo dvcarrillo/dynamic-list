@@ -38,15 +38,30 @@ int main(int argc, char const *argv[])
 	cout << "* List sorted: ";
 
 	if (IsItSorted(list))
-		cout << "yes (there's no need to sort)";
+		cout << "yes";
 	else
 	{
 		cout << "no" << endl << endl;
 		cout << "Sorting list..." << endl;
 		Sort(list);
 		cout << "Showing the sorted list..." << endl;
-		ShowList (list);
+		ShowList(list);
 	}
+	
+	cout << endl << endl;
+
+	cout << "DATA MANAGEMENT FUNCIONS:" << endl;
+
+	DataType newvalue;
+
+	cout << "* Enter a value to insert in the list: ";
+	cin >> newvalue;
+
+	cout << endl;
+	cout << "Inserting value into the list..." << endl;
+	InsertValue(list, newvalue);
+	cout << "Showing the new list..." << endl;
+	ShowList(list);
 
 	cout << endl << endl;
 
