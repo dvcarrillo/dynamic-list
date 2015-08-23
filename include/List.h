@@ -12,20 +12,26 @@ struct Node{
 	Node * next;
 };
 
+typedef Node * PNode;		// Pointer to a node
+
 /*********************************************************/
 // FUNCTION PROTOTYPES
 
 // List management functions
-Node * MakeNewList (void);
-void ShowList (Node *);
-void CleanMemory (Node *);
+PNode MakeNewList (void);
+void ShowList (PNode);
+void CleanMemory (PNode);
 
 // List characteristics functions
-bool IsItVoid (Node *);
-int NumberOfNodes (Node *);
+bool IsItVoid (PNode);
+int NumberOfNodes (PNode);
 
 // Statistical functions
-DataType Mean (Node *);
-DataType Variance (Node *);
+DataType Mean (PNode);
+DataType Variance (PNode);
+
+// Ordination functions
+bool IsItSorted (PNode);
+void Sort (PNode &);
 
 #endif
