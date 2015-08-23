@@ -34,4 +34,7 @@ DataType Variance (PNode);
 bool IsItSorted (PNode);
 void Sort (PNode &);
 
+// Data management functions
+void InsertValue (PNode &, DataType);
+
 #endif
