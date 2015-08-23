@@ -216,8 +216,8 @@ bool IsItSorted (PNode first)
 /*****************************************************************************/
 // SORT A DISORDERED LIST
 // If a list is disordered, this function sorts it following the order "from
-// minor to major". It returns the pointer to the first node of it and 
-// receives as argument a pointer to the first node.
+// minor to major".
+// Receives a reference to the first node.
 
 void Sort (PNode &first)
 {
@@ -251,6 +251,73 @@ void Sort (PNode &first)
 			minor_pos->info = tmp;
 
 			aux1 = aux1->next;
+		}
+	}
+}
+
+/*****************************************************************************/
+// INSERT A VALUE INTO A SORTED LIST
+// Inserts the indicated value in the position where it fits.
+// Receives a reference to the first node and the value to insert.
+
+void InsertValue (PNode &first, DataType n)
+{
+	if (!IsItSorted(first))			// Sorts the list in case it is not
+	{
+		Sort(first);
+		InsertValue(first, n);
+	}
+
+	else if (IsItVoid(first))		// There isn't any node
+	{
+		first = new Node;
+		first->info = n;
+		first->next = 0;
+	}
+
+	else						// Right conditions to insert a value
+	{
+		PNode aux1 = first;		// Pointer that covers all the list
+		PNode aux2 = first;		// The previous node to the inserted one
+
+		bool go_on = true;
+
+		while (go_on)
+		{
+			if (aux1 != 0)
+			{
+				if (aux1->info < n)		// Searchs a node with a major value
+				{
+					aux2 = aux1;
+					aux1 = aux1->next;
+				}
+				else					// aux1 points to a major value than n
+					go_on = false;
+			}
+			else					// aux1 has reached the end of the list
+				go_on = false;
+		}
+
+		PNode inserted = new Node;		// Node to be inserted
+		inserted->info = n;
+
+		// Connects the inserted node with the actual list
+		if (aux1 == first)
+		{
+			inserted->next = first;
+			first = inserted;
+		}
+
+		else if (aux1 == 0)
+		{
+			aux2->next = inserted;
+			inserted->next = 0;
+		}
+
+		else
+		{
+			aux2->next = inserted;
+			inserted->next = aux1;
 		}
 	}
 }
