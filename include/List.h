@@ -1,7 +1,17 @@
-// List.h
+/*****************************************************************************/
+// DAVID VARGAS CARRILLO
+// github.com/dvcarrillo
+//
+// dynamic-list:
+// Program that creates, manages and releases from memory a dynamic list.
+// File: List.h
+/*****************************************************************************/
 
 #ifndef LIST 
 #define LIST
+
+/*****************************************************************************/
+// TYPE DEFINITIONS
 
 // Define the type of data that the list is going to use
 typedef double DataType;
@@ -14,7 +24,7 @@ struct Node{
 
 typedef Node * PNode;		// Pointer to a node
 
-/*********************************************************/
+/*****************************************************************************/
 // FUNCTION PROTOTYPES
 
 // List management functions
