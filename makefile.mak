@@ -1,11 +1,16 @@
+################################################################
+# DAVID VARGAS CARRILLO
+# github.com/dvcarrillo
+# 
 # MAKE FOR DemoDemoList.cpp
+################################################################
 
-BIN = bin;
-SRC = src;
-OBJ = obj;
-DOC = doc;
-LIB = lib;
-INCLUDE = include;
+BIN = bin
+SRC = src
+OBJ = obj
+DOC = doc
+LIB = lib
+INCLUDE = include
 
 #..........................................................
 all:  preamble \
