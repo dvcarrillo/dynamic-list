@@ -1,4 +1,11 @@
-// List.cpp
+/*****************************************************************************/
+// DAVID VARGAS CARRILLO
+// github.com/dvcarrillo
+//
+// dynamic-list:
+// Program that creates, manages and releases from memory a dynamic list.
+// File: List.cpp
+/*****************************************************************************/
 
 #include "List.h"
 #include <iostream>
